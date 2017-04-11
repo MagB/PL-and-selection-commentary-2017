@@ -234,7 +234,6 @@ and_PL$Year=factor(and_PL$Year, levels=c("2009", "2010", "2011"))
 
 and_plot=ggplot(and_PL, aes(y=and_PL$PL,x=and_PL$X_values,  group=Year)) + 
         geom_line(aes(color=Year)) + scale_color_manual(values=c("coral1", "magenta4", "deepskyblue"),labels=c("2009 PL=0.36", "2010 PL=0.63 ", "2011 PL=0.20"))+
-        #scale_fill_discrete(labels=c("2009 PL=", "2010 PL= ", "2011 PL="))+
         xlab("Z") + 
         ylab(yname)+         
         ggtitle(title_bold_and)+
@@ -242,7 +241,7 @@ and_plot=ggplot(and_PL, aes(y=and_PL$PL,x=and_PL$X_values,  group=Year)) +
         scale_x_continuous(limits = c(-4,4)) +
         scale_y_continuous(limits = c(0,1),expand = c(0, 0))+ 
         theme(plot.margin = unit(c(0.05,0.1,0,0.05), "cm"),
-                plot.title = element_text(face="plain",hjust = -1.35, size = "12"),
+                plot.title = element_text(face="plain",hjust = -1, size = "12"),
                 axis.title.y = element_text(colour = "black", size = "12"),
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank(),
@@ -266,7 +265,7 @@ flr_num_plot=ggplot(flr_num_PL, aes(y=flr_num_PL$PL,x=flr_num_PL$X_values,  grou
         ggtitle(title_bold)+
         #ggtitle("(b) Flower number")+
         theme(plot.margin = unit(c(0.05,0.1,0,0.05), "cm"),
-                plot.title = element_text(face="plain",hjust = -1.35, size = "12"),
+                plot.title = element_text(face="plain",hjust = -0.5, size = "12"),
                 axis.title.y = element_text(colour = "black", size = "12"),
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank(),
@@ -311,9 +310,9 @@ grid_arrange_shared_legend <- function(..., ncol = length(list(...)), nrow = 1, 
 }
 
 quartz(width = 8, height  = 5.5, family = "Helvetica")
-tiff(file = "plots.tiff", width = 8, height  = 5.5, units = "in", family = "Helvetica", res = 600, pointsize = 12, bg="transparent")
+#tiff(file = "plots.tiff", width = 8, height  = 5.5, units = "in", family = "Helvetica", res = 600, pointsize = 12, bg="transparent")
 grid_arrange_shared_legend(and_plot, flr_num_plot, ncol = 2, nrow = 1,position = "right")
-quartz.save("Figure.jpg", type = "jpg", device = dev.cur(),  dpi = 1000, pointsize = 10, bg="transparent")
+quartz.save("figures/IPL_March_2017.pdf", type = "pdf", device = dev.cur(),  dpi = 1000, pointsize = 10, bg="transparent")
 dev.off()
 
 setEPS()
