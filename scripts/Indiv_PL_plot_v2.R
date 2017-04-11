@@ -241,13 +241,14 @@ and_plot=ggplot(and_PL, aes(y=and_PL$PL,x=and_PL$X_values,  group=Year)) +
         scale_x_continuous(limits = c(-4,4)) +
         scale_y_continuous(limits = c(0,1),expand = c(0, 0))+ 
         theme(plot.margin = unit(c(0.05,0.1,0,0.05), "cm"),
-                plot.title = element_text(face="plain",hjust = -1, size = "12"),
+                plot.title = element_text(face="plain",hjust = -0.85, size = "12"),
                 axis.title.y = element_text(colour = "black", size = "12"),
                 panel.grid.major = element_blank(),
                 panel.grid.minor = element_blank(),
                 panel.background = element_blank(),
                 axis.line.x = element_line(color="black"),
-                axis.line.y = element_line(color="black"))
+                axis.line.y = element_line(color="black"),
+                legend.key = element_rect(colour = "transparent", fill = "white"))
 
 #
 flr_num_PL=get_predicted_values(mydata,c('2009', '2010','2011'), "flr_num")
