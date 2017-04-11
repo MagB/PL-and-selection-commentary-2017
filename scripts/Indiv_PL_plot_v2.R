@@ -317,6 +317,6 @@ quartz.save("Figure.jpg", type = "jpg", device = dev.cur(),  dpi = 1000, pointsi
 dev.off()
 
 setEPS()
-postscript("IPL_March_2017.eps",width = 8, height  = 5.5,  family = "Helvetica", )
+postscript("figures/IPL_March_2017.eps",width = 8, height  = 5.5,  family = "Helvetica", )
 grid_arrange_shared_legend(and_plot, flr_num_plot, ncol = 2, nrow = 1,position = "right")
 dev.off()
